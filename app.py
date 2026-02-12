@@ -3,7 +3,10 @@ import joblib
 import numpy as np
 import pandas as pd
 from src.utils import clean_text
-
+import nltk
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 
 # -------------------- PAGE CONFIG --------------------
 st.set_page_config(
