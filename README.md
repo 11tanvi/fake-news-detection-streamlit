@@ -1,75 +1,80 @@
-Smart Fake News Detection
+# Smart Fake News Detection
 
 An end-to-end machine learning web application that detects fake vs. real news using NLP and domain-specific models. The system selects the best model based on news type (political statements vs. social-media/viral news) and provides an interactive Streamlit interface for real-time testing and explainability.
 
-overview
+## Overview
 
 Fake news spreads fast and influences public opinion; automated detection helps platforms and users flag likely misinformation for human review. This project demonstrates practical NLP, model selection, and deployment skills applied to a real-world problem.
 
-Key features
+## Key Features
 
-Detects fake news from free-text input
+- Detects fake news from free-text input.
+- Domain-aware models for political statements and social-media news.
+- Clear model performance metrics and comparison.
+- Interactive UI with prediction outputs and explanations.
+- End-to-end pipeline from preprocessing to training, evaluation, and deployment.
 
-Domain-aware models: separate models for political statements and social-media news.
+## Datasets
 
-Clear model performance metrics and comparison.
+- **LIAR Dataset** — Political statements dataset used for the political-domain model.
+- **FakeNewsNet Dataset** — Social-media and viral news dataset used for the social-news model.
 
-Interactive UI with prediction outputs and explanations.
+## Models & Performance
 
-End-to-end pipeline from preprocessing → training → evaluation → deployment.
+| Dataset | Model | Primary Metric |
+|---------|-------|----------------|
+| LIAR (Political) | Logistic Regression, XGBoost Classifier | Accuracy ≈ 91% |
+| FakeNewsNet (Social) | Logistic Regression | Accuracy ≈ 83% |
 
-Datasets
+Additional metrics such as ROC-AUC, precision, recall, F1-score, and confusion matrices are available in the evaluation notebooks.
 
-LIAR — political statements dataset (multi-class labels; used for political-domain model).
+## What I Built
 
-FakeNewsNet — social-media and viral news dataset (binary labels; used for social-media model).
+- Data cleaning and text normalization using NLP techniques such as tokenization, stopword removal, and lemmatization.
+- Feature engineering using TF-IDF and domain-specific features.
+- Model training and selection using Logistic Regression and XGBoost Classifier.
+- Model serialization using joblib for deployment.
+- Streamlit dashboard for interactive predictions and basic explainability.
+- Deployment-ready repository with instructions and examples.
 
-Models & performance
+## Demo
 
-Dataset	Model	Primary metric
+- **Live Demo:** [Try the app](https://fake-news-detection-streamlit.onrender.com/)
 
-LIAR (political)	XGBoost	Accuracy ≈ 91%
-FakeNewsNet (social)	Logistic Regression	Accuracy ≈ 83%
-Additional metrics (ROC-AUC, precision, recall, F1) and confusion matrices are available in the evaluation notebooks.
+## Screenshots
 
-What I built
+### Main Dashboard
+![Main Dashboard](./assets/dashboard.png)
 
-Data cleaning and text normalization (tokenization, stopword removal, lemmatization).
+### Prediction Results
+![Prediction Results](./assets/result.png)
 
-Feature engineering using TF‑IDF and domain-specific features.
+## Project Structure
 
-Model selection and training pipelines (scikit-learn + XGBoost).
-
-Model serialization (joblib) and inference wrapper.
-
-dashboard for interactive predictions and basic explainability.
-
-Deployment-ready repo with instructions and examples.
-
-Demo
-
-Live demo: [https://fake-news-detection-streamlit.onrender.com/]
-
-Screenshots
-main Dashboard
-assets/dashboard.png
-
-Results
-assets/result.png
-
-Project structure
-
-text
+```text
 smart-fake-news-detection/
-├─ app.py                  # Streamlit app
-├─ notebooks/              # EDA & training notebooks
-├─ models/                 # Trained model files (joblib)                 
-├─ src/                    # preprocessing, training, inference modules
-├─ assets/                 # screenshots, figures
-├─ requirements.txt
-└─ README.md
+├── app.py
+├── notebooks/
+├── models/
+├── src/
+├── assets/
+├── requirements.txt
+└── README.md
+```
 
-Example usage
+## Example Usage
 
-Single prediction: paste an article or short statement → choose domain → Predict → get probability and label.
+- Paste a news article or short statement into the app.
+- Select the appropriate news domain.
+- Click **Predict** to get the prediction label and result.
 
+## Tech Stack
+
+- Python
+- NLP
+- Scikit-learn
+- XGBoost
+- Streamlit
+- Pandas
+- NumPy
+- Joblib
